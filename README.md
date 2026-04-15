@@ -1,4 +1,4 @@
-# ADS-B Noise Impact on Autoencoder Models
+# ADS-B Noise Impact on Auto-encoder Models
 This repository provides the implementation for the study: **“Investigation of the Noise Impact on Autoencoder Algorithms for ADS-B Trajectory Data”**
 
 ADS-B (Automatic Dependent Surveillance–Broadcast) data are widely used in aviation research, but they often contain noise such as missing data, drift, and anomalies.
@@ -59,7 +59,7 @@ Each dataset contains aircraft trajectories with:
 * Speed & heading
 * Timestamp
 
-
+The datasets for Harbin, Hangzhou, and Guangzhou are available at: https://drive.google.com/drive/folders/14-9x59wCM8_CSwlmTDpLF2uKGtoEHzKN?usp=drive_link
 ##  Output
 
 The code produces:
