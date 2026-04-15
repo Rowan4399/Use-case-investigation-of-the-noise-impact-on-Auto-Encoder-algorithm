@@ -1,5 +1,5 @@
 # ADS-B Noise Impact on Auto-encoder Models
-This repository provides the implementation for the study: **“Investigation of the Noise Impact on Autoencoder Algorithms for ADS-B Trajectory Data”**
+This repository provides the implementation for the study: **“Review of ADS-B Data Usage with the focus on Data Cleaning”**
 
 ADS-B (Automatic Dependent Surveillance–Broadcast) data are widely used in aviation research, but they often contain noise such as missing data, drift, and anomalies.
 
