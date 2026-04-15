@@ -1,20 +1,70 @@
-# Use-case-investigation-of-the-noise-impact-on-Auto-Encoder-algorithm
-This repository contains the code, dataset samples, and experimental results for our study “Review of ADS-B Data Usage with the focus on Data Cleaning”.
-The core of this work is an Autoencoder (AE)-based framework used to evaluate how different data cleaning techniques influence downstream trajectory analysis and modeling performance.
+# ADS-B Noise Impact on Autoencoder Models
+This repository provides the implementation for the study: **“Investigation of the Noise Impact on Autoencoder Algorithms for ADS-B Trajectory Data”**
 
-##  Evaluating the Impact of ADS-B Data Cleaning on Algorithmic Processing
+ADS-B (Automatic Dependent Surveillance–Broadcast) data are widely used in aviation research, but they often contain noise such as missing data, drift, and anomalies.
 
-This repository contains the code, dataset samples, and experimental results for our study **“Evaluating the Impact of ADS-B Data Cleaning on Algorithmic Processing”**.
-The core of this work is an **Autoencoder (AE)**-based framework used to evaluate how different data cleaning techniques influence downstream trajectory analysis and modeling performance.
+This project investigates how different types of noise affect the performance of autoencoder-based models for trajectory reconstruction.
 
-###  Experimental Overview
+We evaluate three architectures:
 
-* **Model Objective:**
-  The Autoencoder minimizes reconstruction error to identify the most representative trajectories (baseline) and quantify how data cleaning affects algorithmic outcomes.
+* Fully Connected Autoencoder (**FC-AE**)
+* Long Short-Term Memory Autoencoder (**LSTM-AE**)
+* Gated Recurrent Unit Autoencoder (**GRU-AE**)
 
-* **Evaluation Metric:**
+##  Experiment Description
 
-  * Reconstruction Loss (MSE)
-  * Error distribution analysis
-  * Baseline selection comparison
+The workflow includes:
+
+1. **Data preprocessing**
+
+   * Filtering trajectories near airports
+   * Removing anomalies and incomplete data
+   * Resampling trajectories to fixed length
+
+2. **Baseline selection**
+
+   * Selecting high-quality trajectories using reconstruction error
+
+3. **Noise injection**
+
+   * Gaussian noise (random perturbation)
+   * Drift noise (systematic offset)
+   * Spike noise (random outliers)
+   * Missing data (point removal + interpolation)
+
+4. **Model evaluation**
+
+   * Reconstruction performance measured using RMSE
+
+##  Key Findings
+
+* **Spike noise** has the least impact on model performance
+* **Drift noise** causes the most consistent degradation
+* **Missing data** shows a nonlinear impact (critical threshold effect)
+* Noise sensitivity depends more on **dataset characteristics** than model architecture
+
+##  Dataset
+
+Experiments are conducted on four airport datasets:
+
+* Zurich (LSZH)
+* Harbin (ZYHB)
+* Hangzhou (ZSHC)
+* Guangzhou (ZGGG)
+
+Each dataset contains aircraft trajectories with:
+
+* Latitude & longitude
+* Altitude
+* Speed & heading
+* Timestamp
+
+
+##  Output
+
+The code produces:
+
+* Reconstructed trajectories
+* RMSE evaluation results
+* Noise sensitivity analysis plots
 
